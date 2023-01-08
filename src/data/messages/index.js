@@ -1,0 +1,7 @@
+
+
+export const mainMassages = [
+    'WARM NEVER LOOKED SO COOL',
+    'FOR ALL TIME SHOP CLASSICS OLD AND NEW',
+    'ACTIVEWEAR FOR YOUR NEW ROUTINE',
+];
