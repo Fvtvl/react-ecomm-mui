@@ -30,10 +30,10 @@ export const Colors = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: Colors.primary,
+      main: Colors.light_gray,
     },
     secondary: {
-      main: Colors.secondary,
+      main: Colors.shaft,
     },
   },
 });

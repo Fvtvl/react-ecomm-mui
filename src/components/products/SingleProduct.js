@@ -30,8 +30,8 @@ const SingleProduct = ({ product, matches }) => {
             </ProductFavButton>
           </Stack>
         </ProductActionWrapper>
+        <ProductAddToCart variant="contained">Add to cart</ProductAddToCart>
       </Product>
-      <ProductAddToCart variant="contained">Add to cart</ProductAddToCart>
     </>
   );
 };

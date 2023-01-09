@@ -80,3 +80,20 @@ export const ProductActionWrapper = styled(Box, {
       `${slideInRight} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
   },
 }));
+
+export const BannerShopButton = styled(Button)(({ theme }) => ({
+  padding: '20px 0px',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  color: Colors.white,
+  background: Colors.black,
+  '&:hover': {
+    backgroundColor: Colors.dim_grey,
+    color: Colors.black,
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: '90%',
+    padding: '10px 0px',
+    fontSize: '14px',
+  },
+}));

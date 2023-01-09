@@ -1,10 +1,12 @@
 import { Container, Grid, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import React from 'react';
 import { products } from '../../data/products';
 import SingleProduct from './SingleProduct';
 import SingleProductDesktop from './SingleProductDesktop';
 
-const Products = () => {
+const Products = React.memo(() => {
+  console.log('products');
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -40,6 +42,6 @@ const Products = () => {
       </Grid>
     </Container>
   );
-};
+});
 
 export default Products;

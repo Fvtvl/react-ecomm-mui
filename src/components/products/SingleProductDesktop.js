@@ -10,20 +10,20 @@ import ProductsMeta from './ProductsMeta';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import FitScreenIcon from '@mui/icons-material/FitScreen';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Stack } from '@mui/material';
 
 const SingleProductDesktop = ({ product, matches }) => {
   const [showOptions, setShowOptions] = useState(false);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     console.log('enter');
     setShowOptions(true);
-  };
-  const handleMouseLeave = () => {
+  }, [setShowOptions]);
+  const handleMouseLeave = useCallback(() => {
     console.log('leave');
     setShowOptions(false);
-  };
+  }, [setShowOptions]);
 
   return (
     <>
