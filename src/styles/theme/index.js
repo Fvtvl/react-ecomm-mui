@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, lighten } from '@mui/material/styles';
 
 export const Colors = {
   primary: '#5f2c3e',
@@ -34,6 +34,25 @@ const theme = createTheme({
     },
     secondary: {
       main: Colors.shaft,
+    },
+  },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          width: 250,
+          background: Colors.dim_grey,
+          color: Colors.white,
+          borderRadius: '0px 100px 0px 0px',
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: Colors.white,
+        },
+      },
     },
   },
 });

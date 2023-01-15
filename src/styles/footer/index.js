@@ -8,11 +8,16 @@ export const FooterTitle = styled(Typography)(() => ({
 }));
 
 export const SubscribeTf = styled(TextField)(() => ({
-  color: Colors.white,
+  '.MuiInput-root': {
+    color: Colors.white,
+  },
   '.MuiInputLabel-root': {
     color: Colors.white,
   },
-  '.MuiInputLabel-root::before': {
+  '.MuiInputLabel-root.Mui-focused': {
+    color: Colors.dim_grey,
+  },
+  '.MuiInput-root::before': {
     borderBottom: `1px solid ${Colors.white}`,
   },
 }));
