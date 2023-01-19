@@ -12,7 +12,7 @@ import { DrawerCloseButton } from '../../styles/appbar';
 import { Colors } from '../../styles/theme';
 
 const AppDrawer = React.memo(() => {
-  // console.log('appdrawer');
+  console.log('appdrawer');
   const { drawerOpen, setDrawerOpen } = useUIContext();
   return (
     <>

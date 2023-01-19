@@ -17,7 +17,8 @@ export const Product = styled(Box)(({ theme }) => ({
 
 export const ProductImage = styled('img')(({ src, theme }) => ({
   src: `url(${src})`,
-  width: '100%',
+  maxWidth: '100%',
+  height: 'auto',
 }));
 
 export const ProductActionButton = styled(IconButton)(() => ({

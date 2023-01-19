@@ -19,10 +19,10 @@ function App() {
       <UIProvider>
         <Appbar />
         <Banner />
-        <Promotions message={mainMassages} sx={{ maxWidth: 'false' }} />
+        <Promotions message={mainMassages} />
 
         <Container
-          maxWidth
+          maxWidth="lg"
           sx={{
             background: '#fff',
           }}
