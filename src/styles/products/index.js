@@ -15,10 +15,10 @@ export const Product = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ProductImage = styled('img')(({ src, theme }) => ({
-  src: `url(${src})`,
+export const ProductImage = styled('img')(({ src }) => ({
   maxWidth: '100%',
   height: 'auto',
+  src: `url(${src})`,
 }));
 
 export const ProductActionButton = styled(IconButton)(() => ({

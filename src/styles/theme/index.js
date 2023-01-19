@@ -1,8 +1,8 @@
 import { createTheme, lighten } from '@mui/material/styles';
 
 export const Colors = {
-  primary: '#5f2c3e',
-  secondary: '#d1adcc',
+  primary: 'rgb(230,230,230)',
+  secondary: '#333',
   success: '#4CAF50',
   info: '#00a2ff',
   danger: '#FF5722',

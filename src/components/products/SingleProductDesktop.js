@@ -12,6 +12,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import FitScreenIcon from '@mui/icons-material/FitScreen';
 import { useCallback, useState } from 'react';
 import { Stack } from '@mui/material';
+import useDialogModal from '../../hooks/useDialogModal';
+import ProductDetail from '../productdetail';
 
 const SingleProductDesktop = ({ product, matches }) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -24,6 +26,9 @@ const SingleProductDesktop = ({ product, matches }) => {
     console.log('leave');
     setShowOptions(false);
   }, [setShowOptions]);
+
+  const [ProductDetailDialog, showProductDetailDialog] =
+    useDialogModal(ProductDetail);
 
   return (
     <>
@@ -43,13 +48,14 @@ const SingleProductDesktop = ({ product, matches }) => {
             <ProductActionButton>
               <ShareIcon />
             </ProductActionButton>
-            <ProductActionButton>
+            <ProductActionButton onClick={() => showProductDetailDialog()}>
               <FitScreenIcon />
             </ProductActionButton>
           </Stack>
         </ProductActionWrapper>
       </Product>
       <ProductsMeta product={product} matches={matches} />
+      <ProductDetailDialog product={product} />
     </>
   );
 };
