@@ -22,13 +22,13 @@ import { Product, ProductImage } from '../../styles/products';
 import IncDec from '../ui';
 import { Facebook, Favorite, Instagram, Twitter } from '@mui/icons-material';
 
-function ZoomTransition(props) {
-  return <Zoom {...props} />;
-}
+const ZoomTransition = React.forwardRef((props, ref) => {
+  return <Zoom {...props} ref={ref} />;
+});
 
-function SlideTransition(props) {
-  return <Slide {...props} />;
-}
+const SlideTransition = React.forwardRef((props, ref) => {
+  return <Slide {...props} ref={ref} />;
+});
 
 const ProductDetail = ({ open, onClose, product }) => {
   const theme = useTheme();
@@ -39,6 +39,7 @@ const ProductDetail = ({ open, onClose, product }) => {
       TransitionComponent={matches ? SlideTransition : ZoomTransition}
       variant="permanat"
       open={open}
+      onClose={onClose}
       fullScreen={matches}
       maxWidth={matches ? 'sm' : 'md'}
     >

@@ -33,7 +33,7 @@ const SingleProductDesktop = ({ product, matches }) => {
   return (
     <>
       <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ProductImage src={product.image} />
+        <ProductImage src={product.image} width="100%" />
         <ProductFavButton isFav={0}>
           <FavoriteIcon />
         </ProductFavButton>
