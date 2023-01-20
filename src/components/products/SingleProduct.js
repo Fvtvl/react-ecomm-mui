@@ -12,18 +12,17 @@ import ShareIcon from '@mui/icons-material/Share';
 import FitScreenIcon from '@mui/icons-material/FitScreen';
 import useDialogModal from '../../hooks/useDialogModal';
 import ProductDetail from '../productdetail';
+import useCart from '../../hooks/useCart';
 
 const SingleProduct = ({ product, matches }) => {
-  const [
-    ProductDetailDialog,
-    showProductDetailDialog,
-    closeProductDetailDialog,
-  ] = useDialogModal(ProductDetail);
+  const [ProductDetailDialog, showProductDetailDialog] =
+    useDialogModal(ProductDetail);
+  const { addToCart, addToCartText } = useCart(product);
 
   return (
     <>
       <Product>
-        <ProductImage src={product.image} width="100%" />
+        <ProductImage src={product.image} width="70%" />
         <ProductsMeta product={product} matches={matches} />
         <ProductActionWrapper show={1}>
           <Stack direction="row">
@@ -38,7 +37,9 @@ const SingleProduct = ({ product, matches }) => {
             </ProductFavButton>
           </Stack>
         </ProductActionWrapper>
-        <ProductAddToCart variant="contained">Add to cart</ProductAddToCart>
+        <ProductAddToCart variant="contained" onClick={addToCart}>
+          {addToCartText}
+        </ProductAddToCart>
       </Product>
       <ProductDetailDialog product={product} />
     </>

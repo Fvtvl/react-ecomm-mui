@@ -21,6 +21,7 @@ import {
 import { Product, ProductImage } from '../../styles/products';
 import IncDec from '../ui';
 import { Facebook, Favorite, Instagram, Twitter } from '@mui/icons-material';
+import useCart from '../../hooks/useCart';
 
 const ZoomTransition = React.forwardRef((props, ref) => {
   return <Zoom {...props} ref={ref} />;
@@ -33,6 +34,8 @@ const SlideTransition = React.forwardRef((props, ref) => {
 const ProductDetail = ({ open, onClose, product }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
+
+  const { addToCart, addToCartText } = useCart(product);
 
   return (
     <Dialog
@@ -58,21 +61,39 @@ const ProductDetail = ({ open, onClose, product }) => {
       <DialogContent>
         <ProductDetailWrapper flexDirection={matches ? 'column' : 'row'}>
           <Product sx={{ mr: 4 }}>
-            <ProductImage src={product.image} />
+            <ProductImage
+              src={product.image}
+              width={matches ? '80%' : '100%'}
+            />
           </Product>
-          <ProductDetailInfoWrapper>
-            <Typography variant="subtitle1"> 1212142141</Typography>
-            <Typography variant="subtitle1"> 5 in stock</Typography>
-            <Typography variant="h4">{product.name}</Typography>
-            <Typography variant="body">{product.description}</Typography>
+          <ProductDetailInfoWrapper sx={{ mt: 4 }}>
+            <Typography variant={matches ? 'caption' : 'subtitle1'}>
+              1212142141
+            </Typography>
+            <Typography variant={matches ? 'caption' : 'subtitle1'}>
+              5 in stock
+            </Typography>
+            <Typography variant={matches ? 'h5' : 'h3'}>
+              {product.name}
+            </Typography>
+            <Typography variant={matches ? 'caption' : 'subtitle1'}>
+              {product.description}
+            </Typography>
             <Box
               display="flex"
               sx={{ mt: 4 }}
               alignItems="center"
               justifyContent="space-between"
+              flexDirection={matches ? 'column' : 'row'}
             >
               <IncDec />
-              <Button variant="contained">Add to Cart</Button>
+              <Button
+                variant="contained"
+                sx={matches ? { mt: 3 } : { mt: 0 }}
+                onClick={addToCart}
+              >
+                {addToCartText}
+              </Button>
             </Box>
             <Box
               display="flex"

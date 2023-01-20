@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { mainMassages } from '../src/data/messages';
 import Appbar from './components/appbar';
 import Banner from './components/banner';
+import Cart from './components/cart';
 import AppDrawer from './components/drawer';
 import Footer from './components/footer';
 import Products from './components/products';
@@ -36,6 +37,7 @@ function App() {
           </Button>
           <Typography>{count}</Typography>
           <AppDrawer />
+          <Cart />
           <SearchBox />
         </Container>
         <Footer />

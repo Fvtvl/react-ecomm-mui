@@ -14,6 +14,7 @@ import { useCallback, useState } from 'react';
 import { Stack } from '@mui/material';
 import useDialogModal from '../../hooks/useDialogModal';
 import ProductDetail from '../productdetail';
+import useCart from '../../hooks/useCart';
 
 const SingleProductDesktop = ({ product, matches }) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -30,6 +31,8 @@ const SingleProductDesktop = ({ product, matches }) => {
   const [ProductDetailDialog, showProductDetailDialog] =
     useDialogModal(ProductDetail);
 
+  const { addToCart, addToCartText } = useCart(product);
+
   return (
     <>
       <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -39,8 +42,12 @@ const SingleProductDesktop = ({ product, matches }) => {
         </ProductFavButton>
 
         {showOptions && (
-          <ProductAddToCart show={showOptions} variant="contained">
-            Add to cart
+          <ProductAddToCart
+            show={showOptions}
+            variant="contained"
+            onClick={addToCart}
+          >
+            {addToCartText}
           </ProductAddToCart>
         )}
         <ProductActionWrapper show={showOptions}>

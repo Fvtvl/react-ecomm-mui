@@ -1,4 +1,4 @@
-import { Divider, ListItemButton, ListItemIcon } from '@mui/material';
+import { Badge, Divider, ListItemButton, ListItemIcon } from '@mui/material';
 import {
   ActionIconsContainerDesktop,
   ActionIconsContainerMobile,
@@ -8,11 +8,14 @@ import ShoppingCardIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Person';
 import PersonIcon from '@mui/icons-material/Favorite';
 import { Colors } from '../../styles/theme';
+import { useUIContext } from '../../context/ui';
 
 const Actions = ({ matches }) => {
   const Component = matches
     ? ActionIconsContainerMobile
     : ActionIconsContainerDesktop;
+
+  const { cart, setShowCart } = useUIContext();
 
   return (
     <Component>
@@ -21,6 +24,7 @@ const Actions = ({ matches }) => {
           sx={{
             justifyContent: 'center',
           }}
+          onClick={() => setShowCart(true)}
         >
           <ListItemIcon
             sx={{
@@ -29,7 +33,9 @@ const Actions = ({ matches }) => {
               color: matches ? Colors.dim_grey : Colors.white,
             }}
           >
-            <ShoppingCardIcon />
+            <Badge badgeContent={cart && cart.length} color="secondary">
+              <ShoppingCardIcon />
+            </Badge>
           </ListItemIcon>
         </ListItemButton>
         <Divider orientation="vertical" flexItem />
